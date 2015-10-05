@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import serverfd.guiServer;
 
 public class Conector extends Thread{
     private Socket s;
@@ -15,7 +16,7 @@ public class Conector extends Thread{
     private ObjectInputStream entradaa;
     private BufferedReader entrada;
     final int puerto = 9689;
-    
+    //http://chuidiang.blogspot.com/2005/12/qu-son-los-patrones-de-diseo-el-patrn.html
     public Conector(){
         try{
             ss = new ServerSocket(puerto);
@@ -31,12 +32,25 @@ public class Conector extends Thread{
             System.out.println("entradaa");
             
             System.out.println(entradaa.readUTF());
-            System.out.println("recibido");
-            //this.salida.writeUTF("----CONECTADO----");
-            
+
+            this.salida.writeUTF("----CONECTADO----");
+            this.salida.flush();
+            entradaa.readUTF();
         }catch(Exception e){
             System.err.println("Error en la clase Conector!");
             e.printStackTrace();
+        }
+    }
+    
+    public void run(){
+        while(true){
+            try{
+            ss = new ServerSocket(puerto);
+            s = ss.accept();
+            System.out.println("Conectado");
+            }catch(Exception e){
+                
+            }
         }
     }
 }
