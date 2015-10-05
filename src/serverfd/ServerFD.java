@@ -5,6 +5,8 @@
  */
 package serverfd;
 
+import Clases.Conector;
+
 /**
  *
  * @author wcarrasco
@@ -15,7 +17,7 @@ public class ServerFD {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Conector c = new Conector();
     }
     
 }
