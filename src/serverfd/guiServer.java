@@ -1,5 +1,8 @@
 package serverfd;
 
+import Clases.Usuario;
+import java.util.ArrayList;
+
 /**
  *
  * @author wcarrasco
@@ -108,4 +111,5 @@ public class guiServer extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTextArea taTextoServidor;
     // End of variables declaration//GEN-END:variables
+    public static ArrayList<Usuario> listaUsuarios = new ArrayList<>();
 }
