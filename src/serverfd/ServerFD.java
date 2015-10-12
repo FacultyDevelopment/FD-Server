@@ -6,6 +6,7 @@
 package serverfd;
 
 import Clases.Conector;
+import static serverfd.guiServer.taTextoServidor;
 
 /**
  *
@@ -17,8 +18,11 @@ public class ServerFD {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Conector c = new Conector();
-        c.start();
+        guiServer g = new guiServer();
+        g.setLocationRelativeTo(null);
+        g.setVisible(true);
+        //Conector c = new Conector(taTextoServidor);
+        //c.start();
     }
     
 }

@@ -6,7 +6,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import serverfd.guiServer;
+import java.util.ArrayList;
+import javax.swing.JTextArea;
 
 public class Conector extends Thread{
     private Socket s;
@@ -16,10 +17,17 @@ public class Conector extends Thread{
     private ObjectInputStream entradaa;
     private BufferedReader entrada;
     final int puerto = 9689;
+    private JTextArea texto;
+    private ArrayList <Usuario> usuarios = new ArrayList<>();
+    
     //http://chuidiang.blogspot.com/2005/12/qu-son-los-patrones-de-diseo-el-patrn.html
-    public Conector(){
+    
+    
+    public Conector(JTextArea texto){
+        this.texto = texto;
         try{
             ss = new ServerSocket(puerto);
+            texto.setText(texto.getText() + "/nEsperando Cliente...");
             //guiServer.taTextoServidor.setText(guiServer.taTextoServidor.getText() + "/nEsperando Cliente...");
             System.out.println("Esperando...");
             s = ss.accept();
