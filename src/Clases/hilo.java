@@ -13,6 +13,7 @@ public class hilo extends Thread{
     private ServerSocket socketServer = null;
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
+    public static Usuarios users = new Usuarios();
 
     public hilo() {
         
@@ -34,7 +35,8 @@ public class hilo extends Thread{
     
     @Override
     public void run() {
-        
+        //Usuarios users = new Usuarios();
+        users.getLista().add(new Usuario("admin", "admin", "admin"));
         ServerSocket socketServer = null;
         try{
             socketServer = new ServerSocket(9689);
@@ -42,11 +44,13 @@ public class hilo extends Thread{
             while(true){
                 socket = socketServer.accept();
                 taTextoServidor.append("\nSe conecto un cliente!");
-                oos = new ObjectOutputStream(socket.getOutputStream());
+                //oos = new ObjectOutputStream(socket.getOutputStream());
                 //escribir("OOS");
-                ois = new ObjectInputStream(socket.getInputStream());
+                //ois = new ObjectInputStream(socket.getInputStream());
                 //escribir("OIS");
                 
+                users.getLista().add(new Usuario(socket));
+                users.getLista().get(users.getLista().size()-1).start();
             }
         }catch(Exception e){
             System.err.println("Error en run de clase hilo");

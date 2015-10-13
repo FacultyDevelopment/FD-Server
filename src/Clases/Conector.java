@@ -20,6 +20,7 @@ public class Conector extends Thread{
     private JTextArea texto;
     private ArrayList <Usuario> usuarios = new ArrayList<>();
     
+    
     //http://chuidiang.blogspot.com/2005/12/qu-son-los-patrones-de-diseo-el-patrn.html
     
     

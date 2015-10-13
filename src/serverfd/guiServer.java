@@ -81,29 +81,8 @@ public class guiServer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-//        ServerSocket ss;
-//        System.out.print("Inicializando servidor... ");
-//        taTextoServidor.append("Inicializando servidor... ");
-//        try {
-//            ss = new ServerSocket(9689);
-//            taTextoServidor.append("\t[OK]");
-//            
-//            //int idSession = 0;
-//            while (true) {
-//                Socket socket;
-//                socket = ss.accept();
-//                System.out.println("Nueva conexión entrante: "+socket);
-//                ((hilo) new hilo(socket)).start();
-//                //idSession++;
-//            }
-//        } catch (IOException ex) {
-//            // Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
-
-
-    hilo h = new hilo();
-    h.start();
+        hilo h = new hilo();
+        h.start();
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
