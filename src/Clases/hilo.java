@@ -42,6 +42,11 @@ public class hilo extends Thread{
             while(true){
                 socket = socketServer.accept();
                 taTextoServidor.append("\nSe conecto un cliente!");
+                oos = new ObjectOutputStream(socket.getOutputStream());
+                //escribir("OOS");
+                ois = new ObjectInputStream(socket.getInputStream());
+                //escribir("OIS");
+                
             }
         }catch(Exception e){
             System.err.println("Error en run de clase hilo");
@@ -62,5 +67,9 @@ public class hilo extends Thread{
 //            
 //        }
 //        desconnectar();
+    }
+    
+    public void escribir(String texto){
+        taTextoServidor.append("\n"+texto);
     }
 }
